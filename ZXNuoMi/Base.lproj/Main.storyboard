@@ -9,7 +9,7 @@
         <scene sceneID="LuU-s4-YV5">
             <objects>
                 <navigationController id="Q9j-It-Wkz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="附近" image="icon_tab_fujin_normal" id="ExT-AI-Egh"/>
+                    <tabBarItem key="tabBarItem" title="附近" image="icon_tab_fujin_normal" selectedImage="icon_tab_fujin_highlight" id="ExT-AI-Egh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nL3-5V-nPU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tu0-e2-xrM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5474" y="-1227"/>
+            <point key="canvasLocation" x="-6962" y="-1107"/>
         </scene>
         <!--Index View Controller-->
         <scene sceneID="Kg0-e3-Mpe">
@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djm-xg-dBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4756" y="-1785"/>
+            <point key="canvasLocation" x="-5908" y="-1881"/>
         </scene>
         <!--Nearby View Controller-->
         <scene sceneID="n6b-Jw-K29">
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pQ-ch-s23" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4312" y="-985"/>
+            <point key="canvasLocation" x="-5920" y="-1089"/>
         </scene>
         <!--Choice View Controller-->
         <scene sceneID="Xme-uY-Z6K">
@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9u-2z-Q5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4584" y="-418"/>
+            <point key="canvasLocation" x="-5936" y="-306"/>
         </scene>
         <!--My View Controller-->
         <scene sceneID="aog-2M-7ry">
@@ -97,13 +97,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDH-us-QT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4803" y="349"/>
+            <point key="canvasLocation" x="-5883" y="661"/>
         </scene>
         <!--首页-->
         <scene sceneID="E90-FO-aWm">
             <objects>
                 <navigationController id="8mZ-Zc-gbQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="icon_tab_shouye_normal" id="aaQ-vg-EJn"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="icon_tab_shouye_normal" selectedImage="icon_tab_shouye_highlight" id="aaQ-vg-EJn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p8V-tA-91E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -115,12 +115,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaP-0q-hzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5600" y="-1878"/>
+            <point key="canvasLocation" x="-7024" y="-1950"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="p1d-ov-fDs">
             <objects>
-                <tabBarController id="F9x-s7-vgr" sceneMemberID="viewController">
+                <tabBarController id="F9x-s7-vgr" customClass="ZXTabBarViewController" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5cL-Ef-dOc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -136,13 +136,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISP-np-kwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6558" y="-1136"/>
+            <point key="canvasLocation" x="-7710" y="-1024"/>
         </scene>
         <!--精选-->
         <scene sceneID="AmC-0p-owY">
             <objects>
                 <navigationController id="gvf-rJ-zrR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="精选" image="tab_icon_selection_normal" id="YMt-Hg-WjM"/>
+                    <tabBarItem key="tabBarItem" title="精选" image="tab_icon_selection_normal" selectedImage="tab_icon_selection_highlight" id="YMt-Hg-WjM"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4uh-Zq-rc4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -154,13 +154,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUH-2t-qlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5402" y="-440"/>
+            <point key="canvasLocation" x="-6946" y="-256"/>
         </scene>
         <!--我的-->
         <scene sceneID="bqW-5x-Ody">
             <objects>
                 <navigationController id="XSK-q1-MHN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="tab_icon_selection_normal" id="KDW-nR-hJs"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="icon_tab_wode_normal" selectedImage="icon_tab_wode_highlight" id="KDW-nR-hJs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b66-Dx-b0B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -171,12 +171,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogA-Qp-Ubv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5516" y="357"/>
+            <point key="canvasLocation" x="-6946" y="629"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icon_tab_fujin_normal" width="68" height="68"/>
-        <image name="icon_tab_shouye_normal" width="68" height="68"/>
-        <image name="tab_icon_selection_normal" width="68" height="68"/>
+        <image name="icon_tab_fujin_highlight" width="26" height="26"/>
+        <image name="icon_tab_fujin_normal" width="26" height="26"/>
+        <image name="icon_tab_shouye_highlight" width="26" height="26"/>
+        <image name="icon_tab_shouye_normal" width="26" height="26"/>
+        <image name="icon_tab_wode_highlight" width="26" height="26"/>
+        <image name="icon_tab_wode_normal" width="26" height="26"/>
+        <image name="tab_icon_selection_highlight" width="26" height="26"/>
+        <image name="tab_icon_selection_normal" width="26" height="26"/>
     </resources>
 </document>

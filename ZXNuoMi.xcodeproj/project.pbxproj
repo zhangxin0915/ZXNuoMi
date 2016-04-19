@@ -17,6 +17,7 @@
 		9A7420781CC5D84800796062 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420771CC5D84800796062 /* MyViewController.m */; };
 		9A74207B1CC5D85900796062 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A74207A1CC5D85900796062 /* ChoiceViewController.m */; };
 		9A74207E1CC5D86B00796062 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A74207D1CC5D86B00796062 /* NearbyViewController.m */; };
+		9A7420821CC5DDAE00796062 /* ZXTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420811CC5DDAE00796062 /* ZXTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,9 @@
 		9A74207A1CC5D85900796062 /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		9A74207C1CC5D86B00796062 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		9A74207D1CC5D86B00796062 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		9A7420801CC5DDAE00796062 /* ZXTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXTabBarViewController.h; sourceTree = "<group>"; };
+		9A7420811CC5DDAE00796062 /* ZXTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXTabBarViewController.m; sourceTree = "<group>"; };
+		9A7420861CC5DF1F00796062 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			children = (
 				9A74204B1CC5CC1900796062 /* AppDelegate.h */,
 				9A74204C1CC5CC1900796062 /* AppDelegate.m */,
+				9A7420861CC5DF1F00796062 /* Define.h */,
+				9A74207F1CC5DD7A00796062 /* Base */,
 				9A7420631CC5CE3E00796062 /* IndexViewControllers */,
 				9A7420651CC5CE5D00796062 /* NearbyViewControllers */,
 				9A7420661CC5CE6100796062 /* ChoiceViewControllers */,
@@ -238,6 +244,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		9A74207F1CC5DD7A00796062 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9A7420801CC5DDAE00796062 /* ZXTabBarViewController.h */,
+				9A7420811CC5DDAE00796062 /* ZXTabBarViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		FBECDFB8DD5746CC5FFE0C43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7420821CC5DDAE00796062 /* ZXTabBarViewController.m in Sources */,
 				9A74204D1CC5CC1900796062 /* AppDelegate.m in Sources */,
 				9A74204A1CC5CC1900796062 /* main.m in Sources */,
 				9A7420781CC5D84800796062 /* MyViewController.m in Sources */,
