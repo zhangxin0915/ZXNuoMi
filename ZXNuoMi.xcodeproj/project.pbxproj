@@ -13,6 +13,10 @@
 		9A7420531CC5CC1A00796062 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420511CC5CC1A00796062 /* Main.storyboard */; };
 		9A7420551CC5CC1A00796062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420541CC5CC1A00796062 /* Assets.xcassets */; };
 		9A7420581CC5CC1A00796062 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420561CC5CC1A00796062 /* LaunchScreen.storyboard */; };
+		9A7420751CC5D82D00796062 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420741CC5D82D00796062 /* IndexViewController.m */; };
+		9A7420781CC5D84800796062 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420771CC5D84800796062 /* MyViewController.m */; };
+		9A74207B1CC5D85900796062 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A74207A1CC5D85900796062 /* ChoiceViewController.m */; };
+		9A74207E1CC5D86B00796062 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A74207D1CC5D86B00796062 /* NearbyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,14 @@
 		9A7420541CC5CC1A00796062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A7420571CC5CC1A00796062 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A7420591CC5CC1A00796062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A7420731CC5D82D00796062 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
+		9A7420741CC5D82D00796062 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
+		9A7420761CC5D84800796062 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		9A7420771CC5D84800796062 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		9A7420791CC5D85900796062 /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
+		9A74207A1CC5D85900796062 /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
+		9A74207C1CC5D86B00796062 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
+		9A74207D1CC5D86B00796062 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +119,8 @@
 		9A7420641CC5CE5A00796062 /* MyViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A7420701CC5CFFE00796062 /* Views */,
 				9A74206F1CC5CFFB00796062 /* Controllers */,
+				9A7420701CC5CFFE00796062 /* Views */,
 				9A74206E1CC5CFF800796062 /* Models */,
 			);
 			path = MyViewControllers;
@@ -137,6 +149,8 @@
 		9A7420671CC5CFBC00796062 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A7420731CC5D82D00796062 /* IndexViewController.h */,
+				9A7420741CC5D82D00796062 /* IndexViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +186,8 @@
 		9A74206C1CC5CFF300796062 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A74207C1CC5D86B00796062 /* NearbyViewController.h */,
+				9A74207D1CC5D86B00796062 /* NearbyViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +209,8 @@
 		9A74206F1CC5CFFB00796062 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A7420761CC5D84800796062 /* MyViewController.h */,
+				9A7420771CC5D84800796062 /* MyViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +232,8 @@
 		9A7420721CC5D00300796062 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A7420791CC5D85900796062 /* ChoiceViewController.h */,
+				9A74207A1CC5D85900796062 /* ChoiceViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -349,6 +369,10 @@
 			files = (
 				9A74204D1CC5CC1900796062 /* AppDelegate.m in Sources */,
 				9A74204A1CC5CC1900796062 /* main.m in Sources */,
+				9A7420781CC5D84800796062 /* MyViewController.m in Sources */,
+				9A74207E1CC5D86B00796062 /* NearbyViewController.m in Sources */,
+				9A74207B1CC5D85900796062 /* ChoiceViewController.m in Sources */,
+				9A7420751CC5D82D00796062 /* IndexViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
