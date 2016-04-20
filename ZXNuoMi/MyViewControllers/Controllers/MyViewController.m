@@ -15,7 +15,7 @@
 @interface MyViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *myTableView;
-@property (nonatomic,strong) NSMutableArray *myTableViewDatas;
+@property (nonatomic,strong) NSArray *dataSource;
 
 @end
 
@@ -28,9 +28,10 @@
 }
 -(void)initData
 {
-    
-    self.myTableViewDatas = [NSMutableArray array];
-    
+    self.title = @"我的";
+    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
+    _dataSource = @[@"北京",@"河北",@"天津",@"河南",@"广西",@"广东",@"湖南",@"湖北",@"山东",@"山西",@"陕西",@"新疆",@"西藏",@"青海",@"宁夏",@"福建",@"四川",@"成都",@"上海",@"浙江",@"江苏",@"江西",@"辽宁",@"黑龙江",@"吉林"];
+
 }
 -(void)initView
 {
@@ -39,11 +40,14 @@
     self.myTableView.dataSource = self;
     self.myTableView.delegate = self;
     [self.view addSubview:self.myTableView];
+    
     [self.myTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom).offset(49);
+       
+        make.top.equalTo(self.view.mas_top).offset(64);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-49);
+//        make.left.equalTo(self.view.mas_left);
+//        make.right.equalTo(self.view.mas_right);
+        make.width.equalTo(self.view.mas_width);
     }];
 }
 
@@ -54,7 +58,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _dataSource.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,6 +71,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
+    cell.textLabel.text = _dataSource[indexPath.row];
     return cell;
 }
 

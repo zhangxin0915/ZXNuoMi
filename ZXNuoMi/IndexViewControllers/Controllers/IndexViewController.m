@@ -26,6 +26,7 @@
 }
 -(void)initView
 {
+
     self.indexTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 499) style:UITableViewStyleGrouped];
     self.indexTabelView.delegate = self;
     self.indexTabelView.dataSource =self;
