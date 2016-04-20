@@ -10,6 +10,16 @@
 
 @interface UIImage (Color)
 
+/**
+ * @brief 颜色转换成图片(image)
+ *
+ * @param  color 颜色
+ *
+ * @param  size 大小
+ *
+ * @return 返回 UIImage
+ */
+
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 @end
