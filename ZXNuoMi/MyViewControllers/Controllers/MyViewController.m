@@ -7,15 +7,19 @@
 //
 
 #import "MyViewController.h"
-#import <Masonry/Masonry.h>
 #import "UIImage+Color.h"
 
 
 
 @interface MyViewController () <UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong) UITableView *myTableView;
-@property (nonatomic,strong) NSArray *dataSource;
+@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) UIImageView * topImageView;
+
+@property (nonatomic, assign) CGFloat topContentInset;
+
+@property (nonatomic, assign) CGFloat alphaMemory;
+
 
 @end
 
@@ -23,83 +27,146 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initData];
-    [self initView];
-}
--(void)initData
-{
-    self.title = @"我的";
-    self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
-    _dataSource = @[@"北京",@"河北",@"天津",@"河南",@"广西",@"广东",@"湖南",@"湖北",@"山东",@"山西",@"陕西",@"新疆",@"西藏",@"青海",@"宁夏",@"福建",@"四川",@"成都",@"上海",@"浙江",@"江苏",@"江西",@"辽宁",@"黑龙江",@"吉林"];
-
-}
--(void)initView
-{
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.myTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    self.myTableView.dataSource = self;
-    self.myTableView.delegate = self;
-    [self.view addSubview:self.myTableView];
     
-    [self.myTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.top.equalTo(self.view.mas_top).offset(64);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-49);
-//        make.left.equalTo(self.view.mas_left);
-//        make.right.equalTo(self.view.mas_right);
-        make.width.equalTo(self.view.mas_width);
-    }];
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
+    [self.view addSubview:self.tableView];
+    
+    [self createScaleImageView];
 }
 
-#pragma mark - UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)viewWillAppear:(BOOL)animated
 {
-    return 1;
-}
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _dataSource.count;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *identifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    [super viewWillAppear:animated];
+    
+    [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:_alphaMemory];
+    
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
+
+    if (_alphaMemory == 0) {
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     }
-    cell.textLabel.text = _dataSource[indexPath.row];
+    else {
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    }
+}
+
+#pragma mark - 初始化 懒加载
+- (UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 49)];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
+        _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(200, 0, 0, 0);
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+    return _tableView;
+}
+- (void)createScaleImageView
+{
+//    828 × 871 pixels
+    _topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth*435.5/414.0)];
+    _topImageView.backgroundColor = [UIColor whiteColor];
+    _topImageView.image = [UIImage imageNamed:@"backImage"];
+    [self.view insertSubview:_topImageView belowSubview:_tableView];
+}
+#pragma mark - 设置分割线顶头
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [_tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [_tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+#pragma mark - tableView代理
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString * cellId = @"CELL";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    cell.textLabel.text =@"测试";
+    cell.backgroundColor = [UIColor greenColor];
+    
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+#pragma mark - 滑动代理
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
-}
-#pragma mark - UIScrollViewDelegate
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY > 64) {
-        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    }else{
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(self.view.bounds.size.width, 64)] forBarMetrics:UIBarMetricsDefault];
-        [self.navigationController.navigationBar setTintColor:[UIColor clearColor]];
-    }
-//    self.headerView.offsetY = offsetY;
-//    
-//    if (offsetY > 100) {
-//        [self.navigationController setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//        [self.navigationController setTitleColor:[UIColor whiteColor]];
-//    }else{
-//        [self.navigationController setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
-//        [self.navigationController setTitleColor:[UIColor clearColor]];
+    CGFloat offsetY = scrollView.contentOffset.y + _tableView.contentInset.top;//注意
+        NSLog(@"%lf", offsetY);
+//
+//    if (offsetY > _topContentInset && offsetY <= _topContentInset * 2) {
+//        
+//        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+//            [self setNeedsStatusBarAppearanceUpdate];
+//        }
+//        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+//        
+//        _alphaMemory = offsetY/(_topContentInset * 2) >= 1 ? 1 : offsetY/(_topContentInset * 2);
+//        
+//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:_alphaMemory];
+//        
 //    }
+//    else if (offsetY <= _topContentInset) {
+//        
+//        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+//            [self setNeedsStatusBarAppearanceUpdate];
+//        }
+//        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//        
+//        _alphaMemory = 0;
+//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:0];
+//    }
+//    else if (offsetY > _topContentInset * 2) {
+//        _alphaMemory = 1;
+//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:1];
+//    }
+//
+    // 向下拉动，偏移量是负的。
+    if (offsetY < 0) {
+        // CGAffineTransformMakeScale两个参数，代表x和y方向缩放倍数。
+        _topImageView.transform = CGAffineTransformMakeScale(1 + offsetY/(-500), 1 + offsetY/(-500));
+    }
+    CGRect frame = _topImageView.frame;
+    frame.origin.y = 0;
+    _topImageView.frame = frame;
 }
+
+
+
 
 @end

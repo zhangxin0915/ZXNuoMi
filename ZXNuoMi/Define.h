@@ -9,14 +9,24 @@
 #ifndef Define_h
 #define Define_h
 
+#pragma mark - 系统UI宽高 ---------------------------------------------------------------------------------------
+
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+
+
+#pragma mark - RGB颜色 ------------------------------------------------------------------------------------------
+
+#define RGBA(r, g, b, a)                    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r, g, b)                        RGBA(r, g, b, 1.0f)
+
 
 // 1.判断是否为iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
 
 // 2.获得RGB颜色
-#define RGBA(r, g, b, a)                    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define RGB(r, g, b)                        RGBA(r, g, b, 1.0f)
-
 #define navigationBarColor RGB(252, 74, 132)
 #define separaterColor RGB(200, 199, 204)
 #define selectColor RGB(46, 158, 138)
@@ -25,9 +35,6 @@
 // 3.是否为4inch
 #define fourInch ([UIScreen mainScreen].bounds.size.height == 568)
 
-// 4.屏幕大小尺寸
-#define screen_width [UIScreen mainScreen].bounds.size.width
-#define screen_height [UIScreen mainScreen].bounds.size.height
 
 //重新设定view的Y值
 #define setFrameY(view, newY) view.frame = CGRectMake(view.frame.origin.x, newY, view.frame.size.width, view.frame.size.height)

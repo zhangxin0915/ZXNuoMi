@@ -12,7 +12,7 @@
 		9A74204A1CC5CC1900796062 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420491CC5CC1900796062 /* main.m */; };
 		9A74204D1CC5CC1900796062 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A74204C1CC5CC1900796062 /* AppDelegate.m */; };
 		9A7420531CC5CC1A00796062 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420511CC5CC1A00796062 /* Main.storyboard */; };
-		9A7420551CC5CC1A00796062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420541CC5CC1A00796062 /* Assets.xcassets */; };
+		9A7420551CC5CC1A00796062 /* Image_My in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420541CC5CC1A00796062 /* Image_My */; };
 		9A7420581CC5CC1A00796062 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A7420561CC5CC1A00796062 /* LaunchScreen.storyboard */; };
 		9A7420751CC5D82D00796062 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420741CC5D82D00796062 /* IndexViewController.m */; };
 		9A7420781CC5D84800796062 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7420771CC5D84800796062 /* MyViewController.m */; };
@@ -33,7 +33,7 @@
 		9A74204B1CC5CC1900796062 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A74204C1CC5CC1900796062 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9A7420521CC5CC1A00796062 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A7420541CC5CC1A00796062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A7420541CC5CC1A00796062 /* Image_My */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Image_My; path = Assets.xcassets/Image_My; sourceTree = "<group>"; };
 		9A7420571CC5CC1A00796062 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A7420591CC5CC1A00796062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A7420731CC5D82D00796062 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				9A7420661CC5CE6100796062 /* ChoiceViewControllers */,
 				9A7420641CC5CE5A00796062 /* MyViewControllers */,
 				9A7420511CC5CC1A00796062 /* Main.storyboard */,
-				9A7420541CC5CC1A00796062 /* Assets.xcassets */,
+				9A7420541CC5CC1A00796062 /* Image_My */,
 				9A7420561CC5CC1A00796062 /* LaunchScreen.storyboard */,
 				9A7420591CC5CC1A00796062 /* Info.plist */,
 				9A7420481CC5CC1900796062 /* Supporting Files */,
@@ -345,7 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A7420581CC5CC1A00796062 /* LaunchScreen.storyboard in Resources */,
-				9A7420551CC5CC1A00796062 /* Assets.xcassets in Resources */,
+				9A7420551CC5CC1A00796062 /* Image_My in Resources */,
 				9A7420531CC5CC1A00796062 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
