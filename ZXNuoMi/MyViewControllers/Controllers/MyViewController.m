@@ -31,7 +31,6 @@
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-
     [self.view addSubview:self.tableView];
     
     [self createScaleImageView];
@@ -40,17 +39,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:_alphaMemory];
-    
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
 
-    if (_alphaMemory == 0) {
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    }
-    else {
-        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    }
+    //去掉背景图片
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    //去掉底部线条
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+ 
+
 }
 
 #pragma mark - 初始化 懒加载
@@ -121,41 +116,23 @@
     return cell;
 }
 
-
 #pragma mark - 滑动代理
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
     CGFloat offsetY = scrollView.contentOffset.y + _tableView.contentInset.top;//注意
-        NSLog(@"%lf", offsetY);
-//
-//    if (offsetY > _topContentInset && offsetY <= _topContentInset * 2) {
-//        
-//        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-//            [self setNeedsStatusBarAppearanceUpdate];
-//        }
-//        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-//        
-//        _alphaMemory = offsetY/(_topContentInset * 2) >= 1 ? 1 : offsetY/(_topContentInset * 2);
-//        
-//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:_alphaMemory];
-//        
-//    }
-//    else if (offsetY <= _topContentInset) {
-//        
-//        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-//            [self setNeedsStatusBarAppearanceUpdate];
-//        }
-//        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//        
-//        _alphaMemory = 0;
-//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:0];
-//    }
-//    else if (offsetY > _topContentInset * 2) {
-//        _alphaMemory = 1;
-//        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:1];
-//    }
-//
+    NSLog(@"%lf", offsetY);
+    if (offsetY > 136) {
+        self.navigationController.navigationBar.alpha = (offsetY - 136) / 64 >1?1:(offsetY - 136) / 64;
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(ScreenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
+        self.title = @"我的";
+        self.navigationController.navigationBar.titleTextAttributes= @{UITextAttributeTextColor:[UIColor whiteColor]};
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    }else{
+        [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+        self.title = @"我的";
+        self.navigationController.navigationBar.titleTextAttributes= @{UITextAttributeTextColor:[UIColor clearColor]};
+        self.navigationController.navigationBar.tintColor = [UIColor clearColor];
+    }
     // 向下拉动，偏移量是负的。
     if (offsetY < 0) {
         // CGAffineTransformMakeScale两个参数，代表x和y方向缩放倍数。
