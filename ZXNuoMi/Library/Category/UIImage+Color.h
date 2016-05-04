@@ -19,7 +19,6 @@
  *
  * @return 返回 UIImage
  */
-
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 @end

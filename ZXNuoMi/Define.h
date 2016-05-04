@@ -11,8 +11,8 @@
 
 #pragma mark - 系统UI宽高 ---------------------------------------------------------------------------------------
 
-#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
-#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
 
 

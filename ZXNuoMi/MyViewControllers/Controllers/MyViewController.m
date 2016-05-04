@@ -52,7 +52,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 49)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 49)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor clearColor];
@@ -65,7 +65,7 @@
 - (void)createScaleImageView
 {
 //    828 × 871 pixels
-    _topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth*435.5/414.0)];
+    _topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight*435.5/414.0)];
     _topImageView.backgroundColor = [UIColor whiteColor];
     _topImageView.image = [UIImage imageNamed:@"backImage"];
     [self.view insertSubview:_topImageView belowSubview:_tableView];
@@ -123,7 +123,7 @@
     NSLog(@"%lf", offsetY);
     if (offsetY > 136) {
         self.navigationController.navigationBar.alpha = (offsetY - 136) / 64 >1?1:(offsetY - 136) / 64;
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(ScreenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(kScreenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
         self.title = @"我的";
         self.navigationController.navigationBar.titleTextAttributes= @{UITextAttributeTextColor:[UIColor whiteColor]};
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
